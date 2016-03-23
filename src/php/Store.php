@@ -1,5 +1,5 @@
 <?php
-namespace DevLucid\Component;
+namespace DevLucid\Component\Store;
 
 class Store implements StoreInterface
 {
