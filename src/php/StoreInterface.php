@@ -1,5 +1,5 @@
 <?php
-namespace DevLucid\Component\Store;
+namespace Lucid\Component\Store;
 
 interface StoreInterface
 {

@@ -1,5 +1,5 @@
 <?php
-namespace DevLucid\Component\Store;
+namespace Lucid\Component\Store;
 
 class Cookie extends Store
 {
