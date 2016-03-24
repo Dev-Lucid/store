@@ -1,7 +1,7 @@
 <?php
 namespace Lucid\Component\Store;
 
-class Cookie extends Store
+class CookieStore extends Store
 {
     public function __construct()
     {
