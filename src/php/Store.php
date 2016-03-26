@@ -47,7 +47,7 @@ class Store implements StoreInterface
         return strval($this->source[$name] ?? $defaultValue);
     }
 
-    public function int(string $name, $defaultValue=null): int
+    public function int(string $name, $defaultValue=-1): int
     {
         if (isset($this->source[$name]) === true) {
             if (is_numeric($this->source[$name]) === false) {
