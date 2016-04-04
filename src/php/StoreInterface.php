@@ -3,6 +3,7 @@ namespace Lucid\Component\Store;
 
 interface StoreInterface
 {
+    public function setSource(&$source);
     public function is_set(string $property);
     public function un_set(string $property);
     public function get(string $property, $defaultValue);
@@ -14,4 +15,5 @@ interface StoreInterface
     public function bool(string $property, $defaultValue, $allowStringOn, $allowStringTrue, $allowString1);
     public function boolean(string $property, $defaultValue, $allowStringOn, $allowStringTrue, $allowString1);
     public function DateTime(string $property, $defaultValue);
+    public function setValues(array $array);
 }

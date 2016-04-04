@@ -5,9 +5,18 @@ class Store implements StoreInterface
 {
     private $source = null;
 
-    public function __construct($source=null)
+    public function __construct(&$source=null)
     {
-        $this->source = (is_null($source) === true)?[]:$source;
+        if(is_null($source) === true)
+        {
+            $source = [];
+        }
+        $this->setSource($source);
+    }
+
+    public function setSource(&$newSource)
+    {
+        $this->source =& $newSource;
         $invalidSourceMessage = 'Source for store must either be an array, or an object whose class implements the ArrayAccess and Iterator interfaces.';
         if (is_array($this->source) === false ) {
             if (is_object($this->source) === true) {
@@ -19,6 +28,7 @@ class Store implements StoreInterface
                 throw new \Exception($invalidSourceMessage);
             }
         }
+        return $this;
     }
 
     public function is_set(string $property): bool
@@ -125,5 +135,13 @@ class Store implements StoreInterface
             }
             return $returnArray;
         }
+    }
+
+    public function setValues(array $array)
+    {
+        foreach ($array as $key=>$value) {
+            $this->set($key, $value);
+        }
+        return $this;
     }
 }
